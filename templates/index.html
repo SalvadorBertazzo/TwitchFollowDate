@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Twitch FollowDate</title>
+        <link rel="stylesheet" href="../static/styles/style.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="grid">
+            
+            <!-- Text -->
+            <div class="tittle">
+                <h1 id="main-tittle">Twitch FollowDate</h1>
+                <h2 id="sub-tittle">Use this tool to know how long a user has been following a channel!</h2>
+                <hr size="3px" color="white" width="60%"/>
+            </div>
+
+            <!-- Form Input UserNames -->
+            <form class="main-form" action="#" method="post">
+                <div>
+                    <label for="user1_name">- Username:</label>
+                    <input type="text" id="user1_name" name="user1_name" required>
+                </div>
+                <div>
+                    <label for="user2_name">- Channel :</label>
+                    <input type="text" id="user2_name" name="user2_name" required >
+                </div>
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+            
+            <!-- Info -->
+            {% if user1_name != None %}
+                <div class="results">
+                    <p id="t1">{{ user1_name }} has been following {{ user2_name }} since {{ day }} {{ month }} {{ year }}</p>
+                    <p id="t2" id="'t2">at {{ hour }}:{{ minutes }}:{{ seconds }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Footer -->
+            <div class="footer">
+                <hr size="3px" color="white" width="60%"/>
+                <footer>
+                    <p id="smalltext">The data is fetched from Twitch servers using Twitch API</p>
+                    <ul class="items-footer">
+                        <li><a href="https://github.com/SalvadorBertazzo" target="_blank">GitHub</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <p id="copyright">Made by Salvador © 2022</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+
+</html>
